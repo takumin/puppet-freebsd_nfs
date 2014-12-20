@@ -1,0 +1,20 @@
+{
+  "name": "takumin-freebsd_nfs",
+  "version": "0.1.0",
+  "author": "takumin",
+  "summary": "",
+  "license": "Apache 2.0",
+  "source": "",
+  "project_page": "",
+  "issues_url": "",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "takumin-freebsd_sysrc",
+      "version_requirement": ">= 0.1.0"
+    }
+  ]
+}
