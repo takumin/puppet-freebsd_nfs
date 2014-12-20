@@ -30,7 +30,7 @@ class freebsd_nfs (
   $nfscbd_flags               = $::freebsd_nfs::params::nfscbd_flags,
 ) inherits ::freebsd_nfs::params {
 
-  # validate parameters here
+  include stdlib
 
   class { '::freebsd_nfs::install': } ->
   class { '::freebsd_nfs::config': } ~>
