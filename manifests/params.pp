@@ -14,7 +14,7 @@ class freebsd_nfs::params {
       $server_export              = {
         '/var/cache/pacman' => {
           'maproot'  => {
-          'user' => [ 'group' ],
+            'user'   => [ 'group' ],
           },
           'mapall'   => true,
           'alldirs'  => true,
@@ -51,8 +51,8 @@ class freebsd_nfs::params {
       $nfs_bufpackets             = undef
       $nfscbd_flags               = undef
     }
-  }
-  default: {
-    fail("${::operatingsystem} not supported")
+    default: {
+      fail("${::operatingsystem} not supported")
+    }
   }
 }
