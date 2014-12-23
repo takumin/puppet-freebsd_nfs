@@ -132,24 +132,28 @@ class freebsd_nfs::config {
     if $::freebsd_nfs::nfsclient_flags {
       sysrc { 'nfsclient_flags':
         value => "$::freebsd_nfs::nfsclient_flags",
+        path  => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfs_access_cache {
       sysrc { 'nfs_access_cache':
         value => "$::freebsd_nfs::nfs_access_cache",
+        path  => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfs_bufpackets {
       sysrc { 'nfs_bufpackets':
         value => "$::freebsd_nfs::nfs_bufpackets",
+        path  => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfscbd_flags {
       sysrc { 'nfscbd_flags':
         value => "$::freebsd_nfs::nfscbd_flags",
+        path  => '/etc/rc.conf.d/nfscbd',
       }
     }
   }
