@@ -64,7 +64,7 @@ class freebsd_nfs::config {
         if $::freebsd_nfs::nfsuserd_flags !~ /-domain/ {
           $nfsuserd_flags = "${::freebsd_nfs::nfsuserd_flags} -domain ${::domain}"
         } else {
-          $nfsuserd_flags = ${::freebsd_nfs::nfsuserd_flags}
+          $nfsuserd_flags = $::freebsd_nfs::nfsuserd_flags
         }
       } else {
           $nfsuserd_flags = "-domain ${::domain}"
