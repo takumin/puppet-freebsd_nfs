@@ -83,7 +83,7 @@ define freebsd_nfs::export (
 
   concat::fragment { "export_$name":
     target  => $::freebsd_nfs::server_config,
-    content => "$name $args",
+    content => "$name $args\n",
     order   => '1',
   }
 }

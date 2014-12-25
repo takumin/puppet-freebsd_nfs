@@ -34,7 +34,7 @@ class freebsd_nfs::config {
 
       concat::fragment { 'export_nfsv4':
         target  => $::freebsd_nfs::server_config,
-        content => "V4:${::freebsd_nfs::export_nfsv4['root']} $args",
+        content => "V4:${::freebsd_nfs::export_nfsv4['root']} $args\n",
         order   => '0'
       }
     }
