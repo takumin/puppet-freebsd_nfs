@@ -9,7 +9,8 @@ class freebsd_nfs::config {
     }
     if $::freebsd_nfs::use_nfsv4 {
       if $::freebsd_nfs::export_nfsv4['sec'] {
-        $sec = "-sec join(${::freebsd_nfs::export_nfsv4['sec']}, ':')"
+        $sec_list = join($::freebsd_nfs::export_nfsv4['sec'], ':')
+        $sec = "-sec $sec_list"
       } else {
         $sec = ''
       }
