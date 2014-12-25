@@ -13,6 +13,7 @@ class freebsd_nfs (
   $use_nfsv4                  = $::freebsd_nfs::params::use_nfsv4,
   $package_name               = $::freebsd_nfs::params::package_name,
   $server_config              = $::freebsd_nfs::params::server_config,
+  $export                     = $::freebsd_nfs::params::export,
   $export_nfsv4               = $::freebsd_nfs::params::export_nfsv4,
   $rpcbind_flags              = $::freebsd_nfs::params::rpcbind_flags,
   $rpc_lockd_flags            = $::freebsd_nfs::params::rpc_lockd_flags,

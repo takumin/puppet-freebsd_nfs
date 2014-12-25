@@ -158,4 +158,8 @@ class freebsd_nfs::config {
       }
     }
   }
+
+  if $::freebsd_nfs::export {
+    create_resources(freebsd_nfs::export, $::freebsd_nfs::export)
+  }
 }

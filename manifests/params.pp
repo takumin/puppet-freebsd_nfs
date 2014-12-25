@@ -11,7 +11,7 @@ class freebsd_nfs::params {
       $use_nfsv4                  = false
       $package_name               = [ 'sysutils/libsunacl' ]
       $server_config              = '/etc/exports'
-      $server_export              = undef
+      $export                     = undef
       $export_nfsv4               = {
         'root'     => '/',
         'sec'      => undef,
