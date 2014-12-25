@@ -81,8 +81,9 @@ define freebsd_nfs::export (
 
   $args = "$_maproot $_mapall $_alldirs $_sec $_ro $_public $_webnfs $_index $_quiet $_network $_netmask $_netgroup"
 
-  concat::fragment { "nfs_export[$name]":
+  concat::fragment { "export_$name":
     target  => $::freebsd_nfs::server_config,
     content => "$name $args",
+    order   => '1',
   }
 }
