@@ -11,25 +11,8 @@ class freebsd_nfs::params {
       $use_nfsv4                  = false
       $package_name               = [ 'sysutils/libsunacl' ]
       $server_config              = '/etc/exports'
-      $server_export              = {
-        '/var/cache/pacman' => {
-          'maproot'  => {
-            'user'   => [ 'group' ],
-          },
-          'mapall'   => true,
-          'alldirs'  => true,
-          'sec'      => [ 'krb5' ],
-          'ro'       => true,
-          'public'   => true,
-          'webnfs'   => true,
-          'index'    => 'http://example.com/webnfs.html',
-          'quiet'    => true,
-          'network'  => '192.168.0.0',
-          'netmask'  => '255.255.255.0',
-          'netgroup' => [ 'example.com', 'example.org', '169.254.0.0' ],
-        }
-      }
-      $export_nfsv4              = {
+      $server_export              = undef
+      $export_nfsv4               = {
         'root'     => '/',
         'sec'      => undef,
         'network'  => undef,
