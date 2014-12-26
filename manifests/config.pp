@@ -41,22 +41,25 @@ class freebsd_nfs::config {
 
     if $::freebsd_nfs::mountd_flags != '' {
       sysrc { 'rpcbind_flags':
-        value => "$::freebsd_nfs::rpcbind_flags",
-        path  => '/etc/rc.conf.d/rpcbind',
+        ensure => present,
+        value  => "$::freebsd_nfs::rpcbind_flags",
+        path   => '/etc/rc.conf.d/rpcbind',
       }
     }
 
     if $::freebsd_nfs::rpc_lockd_flags != '' {
       sysrc { 'rpc_lockd_flags':
-        value => "$::freebsd_nfs::rpc_lockd_flags",
-        path  => '/etc/rc.conf.d/lockd',
+        ensure => present,
+        value  => "$::freebsd_nfs::rpc_lockd_flags",
+        path   => '/etc/rc.conf.d/lockd',
       }
     }
 
     if $::freebsd_nfs::rpc_statd_flags != '' {
       sysrc { 'rpc_statd_flags':
-        value => "$::freebsd_nfs::rpc_statd_flags",
-        path  => '/etc/rc.conf.d/statd',
+        ensure => present,
+        value  => "$::freebsd_nfs::rpc_statd_flags",
+        path   => '/etc/rc.conf.d/statd',
       }
     }
 
@@ -72,8 +75,9 @@ class freebsd_nfs::config {
       }
 
       sysrc { 'nfsuserd_flags':
-        value => "$nfsuserd_flags",
-        path  => '/etc/rc.conf.d/nfsuserd',
+        ensure => present,
+        value  => "$nfsuserd_flags",
+        path   => '/etc/rc.conf.d/nfsuserd',
       }
     }
   }
@@ -81,49 +85,56 @@ class freebsd_nfs::config {
   if $::freebsd_nfs::server_enable {
     if $::freebsd_nfs::mountd_flags != '' {
       sysrc { 'mountd_flags':
-        value => "$::freebsd_nfs::mountd_flags",
-        path  => '/etc/rc.conf.d/mountd',
+        ensure => present,
+        value  => "$::freebsd_nfs::mountd_flags",
+        path   => '/etc/rc.conf.d/mountd',
       }
     }
 
     if $::freebsd_nfs::weak_mountd_authentication {
       sysrc { 'weak_mountd_authentication':
-        value => 'YES',
-        path  => '/etc/rc.conf.d/mountd',
+        ensure => present,
+        value  => 'YES',
+        path   => '/etc/rc.conf.d/mountd',
       }
     }
 
     if $::freebsd_nfs::nfs_server_flags != '' {
       sysrc { 'nfs_server_flags':
-        value => "$::freebsd_nfs::nfs_server_flags",
-        path  => '/etc/rc.conf.d/nfsd',
+        ensure => present,
+        value  => "$::freebsd_nfs::nfs_server_flags",
+        path   => '/etc/rc.conf.d/nfsd',
       }
     }
 
     if $::freebsd_nfs::nfs_reserved_port_only != '' {
       sysrc { 'nfs_reserved_port_only':
-        value => 'YES',
-        path  => '/etc/rc.conf.d/nfsd',
+        ensure => present,
+        value  => 'YES',
+        path   => '/etc/rc.conf.d/nfsd',
       }
     }
 
     if $::freebsd_nfs::oldnfs_server_enable != '' {
       sysrc { 'oldnfs_server_enable':
-        value => 'YES',
-        path  => '/etc/rc.conf.d/nfsd',
+        ensure => present,
+        value  => 'YES',
+        path   => '/etc/rc.conf.d/nfsd',
       }
     }
 
     if $::freebsd_nfs::use_nfsv4 {
       sysrc { 'nfsv4_server_enable':
-        value => 'YES',
-        path  => '/etc/rc.conf.d/nfsd',
+        ensure => present,
+        value  => 'YES',
+        path   => '/etc/rc.conf.d/nfsd',
       }
     } else {
       if $::freebsd_nfs::nfsv4_server_enable {
         sysrc { 'nfsv4_server_enable':
-          value => 'YES',
-          path  => '/etc/rc.conf.d/nfsd',
+          ensure => present,
+          value  => 'YES',
+          path   => '/etc/rc.conf.d/nfsd',
         }
       }
     }
@@ -132,29 +143,33 @@ class freebsd_nfs::config {
   if $::freebsd_nfs::client_enable {
     if $::freebsd_nfs::nfsclient_flags {
       sysrc { 'nfsclient_flags':
-        value => "$::freebsd_nfs::nfsclient_flags",
-        path  => '/etc/rc.conf.d/nfsclient',
+        ensure => present,
+        value  => "$::freebsd_nfs::nfsclient_flags",
+        path   => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfs_access_cache {
       sysrc { 'nfs_access_cache':
-        value => "$::freebsd_nfs::nfs_access_cache",
-        path  => '/etc/rc.conf.d/nfsclient',
+        ensure => present,
+        value  => "$::freebsd_nfs::nfs_access_cache",
+        path   => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfs_bufpackets {
       sysrc { 'nfs_bufpackets':
-        value => "$::freebsd_nfs::nfs_bufpackets",
-        path  => '/etc/rc.conf.d/nfsclient',
+        ensure => present,
+        value  => "$::freebsd_nfs::nfs_bufpackets",
+        path   => '/etc/rc.conf.d/nfsclient',
       }
     }
 
     if $::freebsd_nfs::nfscbd_flags {
       sysrc { 'nfscbd_flags':
-        value => "$::freebsd_nfs::nfscbd_flags",
-        path  => '/etc/rc.conf.d/nfscbd',
+        ensure => present,
+        value  => "$::freebsd_nfs::nfscbd_flags",
+        path   => '/etc/rc.conf.d/nfscbd',
       }
     }
   }
